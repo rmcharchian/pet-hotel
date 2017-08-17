@@ -1,0 +1,19 @@
+{
+  "name": "pet-hotel",
+  "version": "1.0.0",
+  "description": "Pet Hotel Group",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rmcharchian/pet-hotel.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rmcharchian/pet-hotel/issues"
+  },
+  "homepage": "https://github.com/rmcharchian/pet-hotel#readme"
+}
