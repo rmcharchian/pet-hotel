@@ -1,11 +1,11 @@
 //vars part two, electric boogaloo
 var express = require('express');
 var router = express.Router();
-var pool = require('/routes/pool');
+var pool = require('./pool');
 
 
 
-route.get('/', function (){
+router.get('/', function (){
     console.log('Get route hit');
     pool.connect( function (err, db, done){
         if (err){
@@ -26,17 +26,17 @@ route.get('/', function (){
     })
 });
 
-route.post('/', function (){
+router.post('/', function (){
     console.log('Post route hit');
     
 });
 
-route.put('/', function (){
+router.put('/', function (){
     console.log('Put route hit');
     
 });
 
-route.delete('/', function (){
+router.delete('/', function (){
     console.log('Delete route hit');
     
 });

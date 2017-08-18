@@ -5,7 +5,7 @@ var express = require('express');
 var app = express();
 var port = 5000;
 var bodyParser = require('body-parser');
-var routes = require('/server/routes/petRoute')
+var routes = require('./routes/petRoute')
 
 //public access
 app.use(express.static('public'));
