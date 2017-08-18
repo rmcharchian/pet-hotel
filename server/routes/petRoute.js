@@ -5,40 +5,79 @@ var pool = require('./pool');
 
 
 
-router.get('/', function (){
+router.get('/', function () {
     console.log('Get route hit');
-    pool.connect( function (err, db, done){
-        if (err){
+    pool.connect(function (err, db, done) {
+        if (err) {
             console.log('Error hitting db', err);
             res.sendStatus(500);
         } else {
             db.query(
                 'SELECT owner.first_name, owner.last_name, pets.breed, pets.color FROM owner JOIN visits ON owner.id = visits.owner_id JOIN pets ON pets.id = visits.pets_id WHERE visits.check_out_date IS NULL;',
-            function (queryErr, result){
-                if (queryErr){
-                    console.log('Error making query', queryErr);
-                    res.sendStatus(500);
-                } else {
-                    res.send(result.rows);
-                }
-            }) 
+                function (queryErr, result) {
+                    if (queryErr) {
+                        console.log('Error making query', queryErr);
+                        res.sendStatus(500);
+                    } else {
+                        res.send(result.rows);
+                    }
+                })
         }
     })
 });
 
-router.post('/', function (){
-    console.log('Post route hit');
-    
+router.post('/ownersRoute', function () {
+    console.log('Owners post route hit');
+    pool.connect(function (err, db, done) {
+        if (err) {
+            console.log('Error hitting db', err);
+            res.sendStatus(500);
+        } else {
+            db.query(
+                'INSERT INTO owners (first_name, last_name) VALUES ($1, $2);',
+                [req.body.firstName, req.body.lastName],
+                function (queryErr, result) {
+                    if (queryErr) {
+                        console.log('Error making query', queryErr);
+                        res.sendStatus(500);
+                    } else {
+                        res.send(result.rows);
+                    }
+                })
+        }
+    })
 });
 
-router.put('/', function (){
+router.post('/petsRoute', function () {
+    console.log('Owners post route hit');
+    pool.connect(function (err, db, done) {
+        if (err) {
+            console.log('Error hitting db', err);
+            res.sendStatus(500);
+        } else {
+            db.query(
+                'INSERT INTO pets (pet_name, breed, color) VALUES ($1, $2, $3); INSERT INTO visits (check_in_date) VALUES (now());',
+                [req.body.petName, req.body.petBreed, req.body.petColor, req.body.date],
+                function (queryErr, result) {
+                    if (queryErr) {
+                        console.log('Error making query', queryErr);
+                        res.sendStatus(500);
+                    } else {
+                        res.sendStatus(200);
+                    }
+                })
+        }
+    })
+});
+
+router.put('/', function () {
     console.log('Put route hit');
-    
+
 });
 
-router.delete('/', function (){
+router.delete('/', function () {
     console.log('Delete route hit');
-    
+
 });
 
 
