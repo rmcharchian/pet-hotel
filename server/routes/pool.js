@@ -1,13 +1,13 @@
 //Pools closed .. for now
 
-// var pool = require('pg');
+var pool = require('pg');
 
-// var config = {
-//     database: ,
-//     host: ,
-//     port: ,
-//     max: ,
-//     idleTimeoutMillis: ,
-// }
+var config = {
+    database: "pet_hotel",
+    host: "localhost",
+    port: 5432,
+    max: 10,
+    idleTimeoutMillis: 1500,
+}
 
-// module.exports = pg.pool(config);
+module.exports = pg.pool(config);
