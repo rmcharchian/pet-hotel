@@ -17,4 +17,17 @@ app.controller('PetHotelController', ['$http', function ($http) {
             self.pets = response.data;
         }); // end of $http
     }; // end of getMessages
+
+    self.postNewPets = function(){
+        $http({
+             method: 'POST',
+             url: '/petRoutes',
+             data: self.newPets             
+         }).then(function (response) {
+             console.log(response);
+             self.getPets();
+         }); // end of $http
+     }; // end of getMessages
+ 
+
 }]);//appController
