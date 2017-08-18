@@ -11,17 +11,17 @@ route.get('/', function (){
 });
 
 route.post('/', function (){
-    console.log('Get route hit');
+    console.log('Post route hit');
     
 });
 
 route.put('/', function (){
-    console.log('Get route hit');
+    console.log('Put route hit');
     
 });
 
 route.delete('/', function (){
-    console.log('Get route hit');
+    console.log('Delete route hit');
     
 });
 //gotta send it somewhere
