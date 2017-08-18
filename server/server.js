@@ -5,7 +5,7 @@ var express = require('express');
 var app = express();
 var port = 5000;
 var bodyParser = require('body-parser');
-var routes = require('/server/routes/route')
+var routes = require('/server/routes/petRoute')
 
 //public access
 app.use(express.static('public'));
@@ -14,7 +14,7 @@ app.use(express.static('public'));
 app.use(bodyParser.json());
 
 //route path for future
-app.use('/routes', routes);
+app.use('/petRoutes', routes);
 
 //can u hear me now?
 app.listen(port, function(){
