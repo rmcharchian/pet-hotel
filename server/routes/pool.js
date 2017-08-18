@@ -1,6 +1,6 @@
 //Pools closed .. for now
 
-var pool = require('pg');
+var pg = require('pg');
 
 var config = {
     database: "pet_hotel",
@@ -10,4 +10,4 @@ var config = {
     idleTimeoutMillis: 1500,
 }
 
-module.exports = pg.pool(config);
+module.exports = pg.Pool(config);
