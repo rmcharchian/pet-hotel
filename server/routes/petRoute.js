@@ -1,11 +1,11 @@
 //vars part two, electric boogaloo
 var express = require('express');
 var router = express.Router();
-var pool = require('./pool');
+var pool = require('../modules/pool');
 
 
 
-router.get('/', function () {
+router.get('/', function (req,res) {
     console.log('Get route hit');
     pool.connect(function (err, db, done) {
         if (err) {
@@ -13,7 +13,7 @@ router.get('/', function () {
             res.sendStatus(500);
         } else {
             db.query(
-                'SELECT owner.first_name, owner.last_name, pets.breed, pets.color FROM owner JOIN visits ON owner.id = visits.owner_id JOIN pets ON pets.id = visits.pets_id WHERE visits.check_out_date IS NULL;',
+                'SELECT owners.first_name, owners.last_name, pets.breed, pets.color FROM owners JOIN visits ON owners.id = visits.owner_id JOIN pets ON pets.id = visits.pets_id WHERE visits.check_out_date IS NULL;',
                 function (queryErr, result) {
                     if (queryErr) {
                         console.log('Error making query', queryErr);
@@ -26,7 +26,7 @@ router.get('/', function () {
     })
 });
 
-router.post('/ownersRoute', function () {
+router.post('/ownersRoute', function (req, res) {
     console.log('Owners post route hit');
     pool.connect(function (err, db, done) {
         if (err) {
@@ -48,7 +48,7 @@ router.post('/ownersRoute', function () {
     })
 });
 
-router.post('/petsRoute', function () {
+router.post('/petsRoute', function (req, res) {
     console.log('Owners post route hit');
     pool.connect(function (err, db, done) {
         if (err) {

@@ -8,6 +8,8 @@ var config = {
     port: 5432,
     max: 10,
     idleTimeoutMillis: 1500,
+    user: 'dreamfreely',
+    password: '12c01r2003c'
 }
 
 module.exports = pg.Pool(config);

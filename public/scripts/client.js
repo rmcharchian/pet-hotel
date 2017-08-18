@@ -4,10 +4,10 @@ app.controller('PetHotelController', ['$http', function ($http) {
     console.log('Pet Hotel Controller has been loaded');
 
     var self = this;
-    
+
     self.pets = [];
     self.owners = [];
-    
+
     self.getPets = function(){
        $http({
             method: 'GET',
@@ -22,14 +22,14 @@ app.controller('PetHotelController', ['$http', function ($http) {
         $http({
              method: 'POST',
              url: '/petRoutes',
-             data: self.newPets             
+             data: self.newPets
          }).then(function (response) {
              console.log(response);
              self.getPets();
          }); // end of $http
      }; // end of getMessages
- 
 
+self.getPets();
 }]);//appController
 
 

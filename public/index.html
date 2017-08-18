@@ -6,12 +6,12 @@
   <link rel="stylesheet" href="vendors/bootstrap.min.css">
   <link rel="stylesheet" href="style.css">
   <script src="vendors/angular.min.js"></script>
-  <script src="script/client.js"></script>
+  <script src="scripts/client.js"></script>
 </head>
 
-<body ng-app="PetHotelApp" ng-controller="PetHotelController">
+<body ng-app="PetHotelApp" ng-controller="PetHotelController as vm">
   <h1>Pet Hotel</h1>
-
+  {{ vm }}
   <!-- Registration Container -->
   <div id="registrationContainer">
     <label for="firstName">First Name</label>
