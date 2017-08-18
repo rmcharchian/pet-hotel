@@ -56,7 +56,7 @@ router.post('/petsRoute', function () {
             res.sendStatus(500);
         } else {
             db.query(
-                'INSERT INTO pets (pet_name, breed, color) VALUES ($1, $2, $3); INSERT INTO visits (check_in_date) VALUES ($4);',
+                'INSERT INTO pets (pet_name, breed, color) VALUES ($1, $2, $3); INSERT INTO visits (check_in_date) VALUES (now());',
                 [req.body.petName, req.body.petBreed, req.body.petColor, req.body.date],
                 function (queryErr, result) {
                     if (queryErr) {
