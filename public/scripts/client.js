@@ -17,4 +17,25 @@ app.controller('PetHotelController', ['$http', function ($http) {
             self.pets = response.data;
         }); // end of $http
     }; // end of getMessages
+
+    self.postNewPets = function(){
+        $http({
+             method: 'POST',
+             url: '/petRoutes',
+             data: self.newPets             
+         }).then(function (response) {
+             console.log(response);
+             self.getPets();
+         }); // end of $http
+     }; // end of getMessages
+ 
+
 }]);//appController
+
+
+//make sure I have the latest version of master
+//switch to master
+//git pull
+//switch to my branch
+//make sure my branch is up to date with master
+//---git merge --no-ff master
