@@ -31,3 +31,11 @@ app.controller('PetHotelController', ['$http', function ($http) {
  
 
 }]);//appController
+
+
+//make sure I have the latest version of master
+//switch to master
+//git pull
+//switch to my branch
+//make sure my branch is up to date with master
+//---git merge --no-ff master
