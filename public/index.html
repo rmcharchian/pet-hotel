@@ -1,11 +1,71 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title></title>
-    <!-- <link rel="stylesheet" href="style.css"> -->
-    <script src="script.js"></script>
-  </head>
-  <body>
-    <div id="container"><div>
-  </body>
+
+  <title></title>
+  <link rel="stylesheet" href="vendors/bootstrap.min.css">
+  <link rel="stylesheet" href="style.css">
+  <script src="vendors/angular.min.js"></script>
+  <script src="script/client.js"></script>
+</head>
+
+<body ng-app="PetHotelApp" ng-controller="PetHotelController">
+  <h1>Pet Hotel</h1>
+
+  <!-- Registration Container -->
+  <div id="registrationContainer">
+    <label for="firstName">First Name</label>
+    <input name="firstName" type="text" placeholder="First Name" />
+
+    <label for="lastName">Last Name</label>
+    <input name="lastName" type="text" placeholder="Last Name" />
+
+    <button class="btn" ng-click="">Register</button>
+  </div>
+
+  <!-- Pet Input Container -->
+  <div id="petInputContainer">
+    <label for="ownerName">Owner Name</label>
+    <input name="ownerName" type="text" placeholder="Last Name" />
+
+    <label for="petName">Pet Name</label>
+    <input name="petName" type="text" placeholder="Last Name" />
+
+    <label for="petColor">Color</label>
+    <input name="petColor" type="text" placeholder="Last Name" />
+
+    <label for="petBreed">Breed</label>
+    <input name="petBreed" type="text" placeholder="Last Name" />
+
+    <button class="btn" ng-click="">Add Pet</button>
+  </div>
+
+<!-- Pet Table Container -->
+  <div id="petTableContainer">
+    <table id="petTable" class="table">
+      <thead>
+        <tr>
+          <th>Owner</th>
+          <th>Pet</th>
+          <th>Breed</th>
+          <th>Color</th>
+          <th>Update</th>
+          <th>Delete</th>
+          <th>Check In/Out</th>
+      </thead>
+      <tbody>
+        <tr ng-repeat="pet in vm.pets">
+          <td>{{ pet.owner }}</td>
+          <td>{{ pet.pet }}</td>
+          <td>{{ pet.breed }}</td>
+          <td>{{ pet.color }}</td>
+          <td>{{ pet.update }}</td>
+          <td>{{ pet.delete }}</td>
+          <td>{{ pet.check }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</body>
+
 </html>
