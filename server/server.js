@@ -8,7 +8,7 @@ var bodyParser = require('body-parser');
 var routes = require('/server/routes/route')
 
 //public access
-app.use(express.static('../public'));
+app.use(express.static('public'));
 
 //angular parser
 app.use(bodyParser.json());
